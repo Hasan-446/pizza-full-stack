@@ -22,6 +22,7 @@
 
 .item:last-child {
   justify-content: flex-end;
+  cursor: pointer;
 }
 
 .callButton {
@@ -34,6 +35,7 @@
 .logo {
   padding-top: 10px;
   padding-bottom: 10px;
+  cursor:pointer;
 }
 
 .list {
