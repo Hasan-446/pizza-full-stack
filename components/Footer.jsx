@@ -9,6 +9,9 @@ const Footer = () => {
           <h2 className={styles.motto}>
             OH YES, WE DID.THE BEST PIZZA BITE, WELL BAKED SLICE OF PIZZA.
           </h2>
+          <div className={styles.developMotto}>
+          <p>Copyright@{new Date().getFullYear()}. Developed By: Mahmudul Hasan</p>
+        </div>
         </div>
         <div className={styles.card}>
           <h1 className={styles.title}>FIND OUR RESTAURANTS</h1>

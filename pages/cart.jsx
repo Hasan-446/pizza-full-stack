@@ -1,10 +1,15 @@
 import styles from "../styles/Cart.module.css";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import OrderDetail from "../components/OrderDetail";
 
 const Cart = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+  const [open, setOpen] = useState(false);
+  const [cash, setCash] = useState(false);
+
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -19,7 +24,7 @@ const Cart = () => {
           </tr>
           {cart.products.map((product) => (
             <tr className={styles.tr} key={product._id}>
-              <td className={styles.td} >
+              <td className={styles.td}>
                 <div className={styles.imgContainer}>
                   <Image
                     src={product.img}
@@ -34,7 +39,7 @@ const Cart = () => {
               </td>
               <td className={styles.td}>
                 <span className={styles.extras}>
-                  {product.extras.map(extra=>(
+                  {product.extras.map((extra) => (
                     <span key={extra._id}>{extra.text}, </span>
                   ))}
                 </span>
@@ -46,7 +51,9 @@ const Cart = () => {
                 <span className={styles.quantity}>{product.quantity}</span>
               </td>
               <td className={styles.td}>
-                <span className={styles.total}>${product.price * product.quantity}</span>
+                <span className={styles.total}>
+                  ${product.price * product.quantity}
+                </span>
               </td>
             </tr>
           ))}
@@ -64,9 +71,24 @@ const Cart = () => {
           <div className={styles.totalText}>
             <b className={styles.totalTextTitle}>Total:</b>${cart.total}
           </div>
-          <button className={styles.button}>CHECKOUT NOW!</button>
+          {open ? (
+            <div className={styles.paymentMethods}>
+              <button
+                className={styles.cashButton}
+                onClick={() => setCash(true)}
+              >
+                CASH ON DELIVERY
+              </button>
+              <button className={styles.payButton}>ONLINE PAYMENT</button>
+            </div>
+          ) : (
+            <button onClick={() => setOpen(true)} className={styles.button}>
+              CHECKOUT NOW!
+            </button>
+          )}
         </div>
       </div>
+      {cash && <OrderDetail />}
     </div>
   );
 };
