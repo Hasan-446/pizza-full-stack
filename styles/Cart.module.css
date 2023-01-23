@@ -7,19 +7,25 @@
   flex: 2;
 }
 
-.td{
+.td {
   text-align: center;
+  justify-content: center;
 }
+
+ .th {
+    text-align: center;
+  }
 
 .right {
   flex: 1;
+  align-items: flex-end;
 }
 
 .imgContainer {
   width: 100px;
   height: 100px;
   position: relative;
-  margin:auto
+  margin: auto;
 }
 
 .table {
@@ -29,7 +35,7 @@
 
 .name {
   font-weight: 500;
-  color: #EE2447;
+  color: #ee2447;
   font-size: 18px;
 }
 
@@ -50,6 +56,10 @@
   color: white;
 }
 
+.title{
+  font-size:35px
+}
+
 .totalTextTitle {
   margin-right: 10px;
 }
@@ -58,15 +68,15 @@
   height: 30px;
   border: none;
   border-radius: 3px;
-  color: #EE2447;
+  color: #ee2447;
   font-weight: bold;
   cursor: pointer;
   margin-top: 20px;
 }
 
 .button:hover {
-  background:#EE2447;
-  color:whitesmoke;
+  background: #ee2447;
+  color: whitesmoke;
 }
 
 .paymentMethods {
@@ -75,7 +85,8 @@
   flex-direction: column;
 }
 
-.payButton ,.cashButton {
+.payButton,
+.cashButton {
   padding: 10px 5px;
   cursor: pointer;
   margin-bottom: 5px;
@@ -83,15 +94,53 @@
   border: none;
   border-radius: 3px;
 }
-.payButton{
-  background-color: #F49D1A;
+.payButton {
+  background-color: #f49d1a;
   color: white;
 }
-.cashButton{
-  background-color: #EE2447;
+.cashButton {
+  background-color: #ee2447;
   color: white;
 }
 
+.Modalwrapper {
+  width: auto;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Modaltitle {
+  font-weight: 200;
+}
+
+.Modalitem {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.Modallabel {
+  margin-bottom: 10px;
+}
+
+.Modalinput {
+  height: 40px;
+}
+
+.Modalbutton {
+  border: none;
+  background-color: teal;
+  color: white;
+  padding: 10px 20px;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
 
 @media screen and (max-width: 480px) {
   .container {
@@ -115,6 +164,9 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 10px;
+  }
+  .th {
+    align-items: center;
   }
 
   .imgContainer {

@@ -2,6 +2,7 @@ import Layout from "../components/Layout";
 import "../styles/globals.css";
 import store from "../redux/store";
 import { Provider } from "react-redux";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function MyApp({ Component, pageProps }) {
   return (

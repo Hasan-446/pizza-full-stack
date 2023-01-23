@@ -1,12 +1,15 @@
 import styles from "../styles/OrderDetail.module.css";
-import React,{useState} from "react";
+import React, { useState } from "react";
 
 const OrderDetail = () => {
+
+
   const [customer, setCustomer] = useState("");
   const [address, setAddress] = useState("");
 
   return (
-    <div className={styles.container}>
+    //<div className={`${styles.container} ${modalState ? styles.active : ""} `}>
+      <div className={styles.container}>
       <div className={styles.wrapper}>
         <h1 className={styles.title}>You will pay $12 after delivery.</h1>
         <div className={styles.item}>

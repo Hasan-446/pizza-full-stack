@@ -13,7 +13,11 @@
 
 .right {
   flex: 1;
-  padding: 20px;
+  padding: 60px 0px;
+}
+
+.title{
+  font-weight: bold;
 }
 
 .imgContainer {
@@ -51,6 +55,8 @@
   width: 50px;
   height: 50px;
 }
+
+
 
 .number {
   position: absolute;

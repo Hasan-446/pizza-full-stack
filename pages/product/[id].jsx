@@ -50,7 +50,7 @@ const Product = ({ pizza }) => {
         <h1 className={styles.title}>{pizza.title}</h1>
         <span className={styles.price}>${price}</span>
         <p className={styles.desc}>{pizza.desc}</p>
-        <h3 className={styles.choose}>Choose the size</h3>
+        <h4 className={styles.choose}>Choose the size</h4>
         <div className={styles.sizes}>
           <div className={styles.size} onClick={() => handleSize(0)}>
             <Image src="/img/size.png" layout="fill" alt="" />
@@ -65,7 +65,7 @@ const Product = ({ pizza }) => {
             <span className={styles.number}>Large</span>
           </div>
         </div>
-        <h3 className={styles.choose}>Choose additional ingredients</h3>
+        <h4 className={styles.choose}>Choose additional ingredients</h4>
         <div className={styles.ingredients}>
           {pizza.extraOptions.map((option) => (
             <div className={styles.option} key={option._id}>
