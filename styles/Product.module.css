@@ -112,6 +112,10 @@
     margin-top: 20px;
   }
 
+  .right{
+    padding: 0px 0px;
+  }
+
   .imgContainer {
     width: 70vw;
     height: 70vw;
