@@ -1,11 +1,24 @@
 import Image from "next/image";
-import React from "react";
+import React,{useState} from "react";
 import axios from "axios";
 import styles from "../../styles/Admin.module.css";
 import img from "../../public/img/pizza.png";
 
 const Index = ({ orders, products }) => {
   const status = ["preparing", "on the way", "delivered"];
+  const [pizzaList, setPizzaList] = useState(products);
+  const [orderList, setOrderList] = useState(orders);
+
+  const handleDelete = async (id) => {
+    try {
+      const res = await axios.delete(
+        "http://localhost:3000/api/products/" + id
+      );
+      setPizzaList(pizzaList.filter((pizza) => pizza._id !== id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className={styles.container}>
@@ -21,7 +34,7 @@ const Index = ({ orders, products }) => {
               <th>Action</th>
             </tr>
           </tbody>
-          {products.map((product) => (
+          {pizzaList.map((product) => (
             <tbody key={product._id}>
               <tr className={styles.trTitle}>
                 <td>
@@ -40,7 +53,12 @@ const Index = ({ orders, products }) => {
                 <td>
                   {" "}
                   <button className={styles.button}>Edit</button>
-                  <button className={styles.button}>Delete</button>{" "}
+                  <button
+                    className={styles.button}
+                    onClick={() => handleDelete(product._id)}
+                  >
+                    Delete
+                  </button>{" "}
                 </td>
               </tr>
             </tbody>
@@ -62,7 +80,7 @@ const Index = ({ orders, products }) => {
             </tr>
           </tbody>
           {orders.map((order) => (
-            <tbody>
+            <tbody key={order._id}>
               <td>{order._id.slice(0, 5)}</td>
               <td>{order.customer}</td>
               <td>{order.total}</td>

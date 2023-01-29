@@ -37,8 +37,8 @@ const Cart = () => {
   const handleShow = () => setShow(true);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
     setTotal(cart.total);
+    e.preventDefault();
     createOrder({ customer, phone, address, total, method: 0 });
   };
 
@@ -49,7 +49,7 @@ const Cart = () => {
           <Modal.Header closeButton></Modal.Header>
           <Modal.Body>
             <div className={styles.Modalwrapper}>
-              <form onSubmit={handleSubmit}>
+              <form>
                 <h2 className={styles.Modaltitle}>
                   You will pay $12 after delivery.
                 </h2>
@@ -85,7 +85,11 @@ const Cart = () => {
                     required
                   />
                 </div>
-                <button type="submit" className={styles.Modalbutton}>
+                <button
+                  type="submit"
+                  className={styles.Modalbutton}
+                  onClick={handleSubmit}
+                >
                   Order
                 </button>
               </form>
