@@ -1817,6 +1817,11 @@
   dependencies:
     "safe-buffer" "~5.1.1"
 
+"cookie@^0.5.0":
+  "integrity" "sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw=="
+  "resolved" "https://registry.npmjs.org/cookie/-/cookie-0.5.0.tgz"
+  "version" "0.5.0"
+
 "core-js-pure@^3.19.0":
   "integrity" "sha512-N3JruInmCyt7EJj5mAq3csCgGYgiSqu7p7TQp2KOztr180/OAIxyIvL1FCjzgmQk/t3Yniua50Fsak7FShI9lA=="
   "resolved" "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.19.3.tgz"

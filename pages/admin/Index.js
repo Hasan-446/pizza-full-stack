@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React,{useState} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import styles from "../../styles/Admin.module.css";
 import img from "../../public/img/pizza.png";
@@ -15,6 +15,22 @@ const Index = ({ orders, products }) => {
         "http://localhost:3000/api/products/" + id
       );
       setPizzaList(pizzaList.filter((pizza) => pizza._id !== id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleStatus = async (id) => {
+    const item = orderList.filter((order) => order._id === id)[0];
+    const currentStatus = item.status;
+    try {
+      const res = await axios.put("http://localhost:3000/api/orders/" + id, {
+        status: currentStatus + 1,
+      });
+      setOrderList([
+        res.data,
+        ...orderList.filter((order) => order._id !== id),
+      ]);
     } catch (error) {
       console.log(error);
     }
@@ -79,7 +95,7 @@ const Index = ({ orders, products }) => {
               <th>Action</th>
             </tr>
           </tbody>
-          {orders.map((order) => (
+          {orderList.map((order) => (
             <tbody key={order._id}>
               <td>{order._id.slice(0, 5)}</td>
               <td>{order.customer}</td>
@@ -89,7 +105,9 @@ const Index = ({ orders, products }) => {
               </td>
               <td>{status[order.status]}</td>
               <td>
-                <button>Next stage</button>
+                <button onClick={() => handleStatus(order._id)}>
+                  Next stage
+                </button>
               </td>
             </tbody>
           ))}
