@@ -8,6 +8,18 @@ const Login = () => {
   const [password, setPassword] = useState(null);
   const [error, setError] = useState(false);
   const router = useRouter();
+
+  const handleClick =async()=>{
+    try {
+      await axios.post("http://localhost:3000/api/login",{
+        username,password,
+      })
+      router.push("/admin")
+    } catch (error) {
+      setError(true)
+    }
+  }
+  
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -23,7 +35,7 @@ const Login = () => {
           className={styles.input}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className={styles.button}>
+        <button onClick={handleClick} className={styles.button}>
           Sign In
         </button>
         {error && <span className={styles.error}>Wrong Credentials!</span>}
